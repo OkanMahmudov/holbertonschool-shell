@@ -1,18 +1,2 @@
 #!/bin/bash
-# Check if BINARY is set and not empty
-if [ -z "$BINARY" ]; then
-  echo "The BINARY environment variable is not set or is empty." >&2
-  exit 1
-fi
-
-# Validate that BINARY contains only 0s and 1s
-if ! [[ "$BINARY" =~ ^[01]+$ ]]; then
-  echo "The BINARY environment variable contains invalid characters. It should only contain 0s and 1s." >&2
-  exit 1
-fi
-
-# Convert binary to decimal using arithmetic expansion
-decimal=$((2#$BINARY))
-
-# Output the decimal value
-echo "$decimal"
+echo $((2#$BINARY))
